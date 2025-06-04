@@ -1,19 +1,19 @@
-"use child";
-import { Button, Container, Flex } from "@radix-ui/themes";
+"use child"
+import { Container, Flex } from "@radix-ui/themes";
 import Link from "next/link";
 import React from "react";
 
 const NavBar = () => {
   const lists = [
     { label: "Dashboard", href: "/" },
-    { label: "Issues", href: "/issues" },
+    { label: "Issues", href: "/issues/list" },
   ];
 
   return (
-    <nav className="border-b mb-5 px-5 py-3">
+    <nav className="border-b mb-20 px-5 py-3 pb-8">
       <Container>
         <Flex asChild gap="4">
-          <ul>
+          <ul className="flex space-x-6">
             {lists.map((list) => (
               <li key={list.href}>
                 <Link href={list.href}>{list.label}</Link>
