@@ -1,26 +1,30 @@
-"use child"
-import { Container, Flex } from "@radix-ui/themes";
+"use client";
+
+import { Container } from "@radix-ui/themes";
 import Link from "next/link";
 import React from "react";
 
 const NavBar = () => {
-  const lists = [
+  const links = [
     { label: "Dashboard", href: "/" },
     { label: "Issues", href: "/issues/list" },
   ];
 
   return (
-    <nav className="border-b mb-20 px-5 py-3 pb-8">
+    <nav className="border-b border-gray-300 mb-6 px-8 py-5 bg-white">
       <Container>
-        <Flex asChild gap="4">
-          <ul className="flex space-x-6">
-            {lists.map((list) => (
-              <li key={list.href}>
-                <Link href={list.href}>{list.label}</Link>
-              </li>
-            ))}
-          </ul>
-        </Flex>
+        <ul className="flex gap-8 text-lg font-medium">
+          {links.map((link) => (
+            <li key={link.href}>
+              <Link
+                href={link.href}
+                className="text-gray-300 hover:text-black transition-colors duration-200"
+              >
+                {link.label}
+              </Link>
+            </li>
+          ))}
+        </ul>
       </Container>
     </nav>
   );
